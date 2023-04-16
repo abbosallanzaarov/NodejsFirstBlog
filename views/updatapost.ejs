@@ -1,0 +1,42 @@
+<%-include('layouts/header') %>
+    <%-include('layouts/navbar') %>
+                    <form method="POST" id="form" action="/post/update/<%=post.id %> " class="form-control">
+                        <label class="input-group input-group-lg">
+                            <input id="input" type="title" value="<%=post.title %> " name="title" placeholder="Title"
+                                class="input input-bordered input-lg" />
+                        </label>
+                        <textarea id="text" name="text" class="textarea textarea-primary"
+                            placeholder="descriptioin..."><%=post.desc %> </textarea>
+                        <button type="submit" class="btn btn-outline">update</button>
+                    </form>
+
+
+                </div>
+
+                <%-include('layouts/footer') %>
+
+                    <style>
+                        #form {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 40px;
+                        }
+
+                        #input {
+                            width: 40%;
+                            margin-bottom: 20px;
+                        }
+
+                        #text {
+                            width: 40%;
+                            margin-bottom: 20px;
+                        }
+
+                        button {
+                            width: 40%;
+                        }
+                    </style>
+
+
+
+

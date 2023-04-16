@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- component -->
+    <section id="section" class="text-gray-600 body-font relative">
+        <div id="karta" class="absolute inset-0 bg-gray-300">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47677.18150352937!2d60.75572485000001!3d41.6811477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfd497a70a1527%3A0xdd439e3fd9f34b09!2z0JHQtdGA0YPQvdC4!5e0!3m2!1sru!2s!4v1660061609966!5m2!1sru!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <form method="POST" action="/auth/register" class="container px-5 py-24 mx-auto flex">
+            <div
+                class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Beruniy Saytga Kirish</h2>
+        
+
+
+                    <% if(error) { %>
+                        <div class="alert alert-error shadow-lg">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span class="text-ingine-500">
+                                    <%=error %>
+                                </span>
+                            </div>
+                        </div>
+                        <% } %>
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Name or Surname</label>
+                    <input type="text" id="email" name="name"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+
+
+                <div class="relative mb-4" id="selectDiv">
+                    <label for="" class="text-dark">Birthday</label><br>
+
+                    <select name="data" id="select" style="padding: 0 4px;">
+                        Data
+                        <% for(let i=1; i<32; i++) { %>
+                            <option value="<% i %> ">
+                                <%=i %>
+                            </option>
+                            <% } %>
+                    </select>
+
+                    <select name="month" id="select" style="padding: 0 10px;">
+                        <option value="Yanvar">Yanvar</option>
+                        <option value="Fevral">Fevral</option>
+                        <option value="Mart">Mart</option>
+                        <option value="Aprel">Aprel</option>
+                        <option value="May">May</option>
+                        <option value="Iyun">Iyun</option>
+                        <option value="Iyul">Iyul</option>
+                        <option value="Avgust">Avgust</option>
+                        <option value="Sentabr">Sentabr</option>
+                        <option value="Oktabr">Oktabr</option>
+                        <option value="Noyabr">Noyabr</option>
+                        <option value="Dekabt">Dekabt</option>
+
+
+
+
+
+
+
+
+
+
+
+                    </select>
+
+                    <select name="year" id="select" style="padding: 0 8px;">
+                        Year
+                        <% for(let i=1960; i<2023; i++) { %>
+                            <option value="<% i %> ">
+                                <%=i %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+
+
+
+
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Password</label>
+                    <input type="password" id="email" name="password"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+
+                <div class="relative mb-4">
+                    <label for="email" class="leading-7 text-sm text-gray-600">Phone</label>
+                    <input type="number" id="email" name="phone"
+                        class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+
+                <button
+                    class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sign
+                    up</button>
+                <p class="text-xs text-gray-500 mt-3">Salom Saytga Tashrib Buyurivchi Do'stlar
+                    <br>
+                    <a id="addres" class="text-indigo-500" href="#">@abbosWebDeveloper</a>
+                    Biz Bilan Bo'g'lanish
+                </p>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    #karta {
+        width: 100%;
+        height: 100%;
+    }
+
+    #section {
+        width: 100%;
+        height: 100%;
+    }
+
+    #selectDiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #select {
+        border: 1px solid darkblue;
+        border-radius: 3px;
+    }
+
+    #addres {
+        border-bottom: 1px solid rgb(54, 38, 157);
+    }
+</style>

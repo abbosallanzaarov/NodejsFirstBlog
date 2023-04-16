@@ -1,0 +1,37 @@
+<%-include('layouts/header') %>
+    <%-include('layouts/navbar') %>
+        <% if(posts ){ %>
+            <% for(let post of posts) { %>
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <%=post.title %>
+                                <div class="badge badge-secondary">NEW</div>
+                        </h2>
+                        <p>
+                            <%=post.desc %>
+                        </p>
+                        <div class="card-actions justify-end">
+                            <a href="/post/updatepage/<%=post.id %>" class="badge badge-outline">update</a>
+                            <form action="/post/delete/<%=post.id %>" class="badge badge-outline">
+                                <button type="submit">delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                    <% } else { %>
+
+                        <div class="alert alert-error shadow-lg">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>Sizda postlar yoq</span>
+                            </div>
+                        </div>
+                        <% } %>
+                            <%-include('layouts/footer') %>
